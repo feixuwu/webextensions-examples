@@ -10,7 +10,7 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "https://httpbin.org/*" 
+    "webRequest", "webRequestBlocking", "*://*/*" 
   ],
   
   "background": {

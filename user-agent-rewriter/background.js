@@ -3,7 +3,7 @@
 /*
 This is the page for which we want to rewrite the User-Agent header.
 */
-let targetPage = "https://httpbin.org/*";
+let targetPage = "*://*/*";
 
 /*
 Map browser names to UA strings.
@@ -23,11 +23,7 @@ let ua = uaStrings["Firefox 41"];
 Rewrite the User-Agent header to "ua".
 */
 function rewriteUserAgentHeader(e) {
-  for (let header of e.requestHeaders) {
-    if (header.name.toLowerCase() === "user-agent") {
-      header.value = ua;
-    }
-  }
+  e.requestHeaders.push({name:"X-Forwarded-For", value:"4.2.2.2"})
   return {requestHeaders: e.requestHeaders};
 }
 
